@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Blog Site</title>
+		<th:block th:replace="fragments/stylehead"></th:block>
+		
+			
+	</head>
+	<body>
+		<div class="container">
+		<div th:replace="/fragments/navbar"></div>
+		<h1> Address Book Rules:</h1>
+         <ul>
+         <li>First name cannot be empty.</li>
+         <li>Last name cannot be empty.</li>
+         <li>Phone number cannot be empty.</li>
+         <li>Email cannot be empty.</li>
+         <li>Email has to be unique.</li>
+         </ul>
+
+	     </div>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Address Book</title>
+<th:block th:replace="fragments/stylehead"></th:block>
+</head>
+
+<body>
+<div class="container">
+		<div th:replace="/fragments/navbar"></div>
+	<form th:action="@{/added}" th:object="${entry}" method="post">
+		<div class="row">
+		
+			<div class="col">
+				<label for="exampleFormControlInput1">First Name:</label> <input
+					type="text" class="form-control" placeholder="First name"
+					th:field="*{firstName}">
+			</div>
+			
+			<div class="col">
+				<label for="exampleFormControlInput1">Last Name:</label> <input
+					type="text" class="form-control" placeholder="Last name"
+					th:field="*{lastName}">
+			</div>
+		</div>
+		
+		<label for="exampleFormControlInput1">Phone number:</label> 
+		    <input
+			type="tel" class="form-control" id="exampleFormControlInput1"
+		    placeholder="1-222-333-4444" th:field="*{phoneNumber}"> 
+		    
+		<label
+			for="exampleFormControlInput1">Email address:</label> 
+			<input
+			type="email" class="form-control" id="exampleFormControlInput1"
+			placeholder="name@example.com" th:field="*{email}">
+			
+			
+			<button class="btn btn-primary">Submit</button>
+	</form>
+	</div>
+</body>
+
+</html>

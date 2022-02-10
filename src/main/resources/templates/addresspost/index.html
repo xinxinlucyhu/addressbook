@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Address Book</title>
+<th:block th:replace="fragments/stylehead"></th:block>
+</head>
+
+<body>
+<div class="container">
+	<div th:replace="/fragments/navbar"></div>
+	<div class="jumbotron">
+		<h1 class="display-4">Hello, there!</h1>
+		<hr class="my-4">
+		<p class="lead">Simple address book, keeps life simple!</p>
+		
+		<div class="container" th:if="${entry!=null}">
+		
+			<h3>Opps...You are seeing this, because you did not follow these
+				rules:</h3>
+			<ul>
+				<li>First name cannot be empty.</li>
+				<li>Last name cannot be empty.</li>
+				<li>Phone number cannot be empty.</li>
+				<li>Email cannot be empty.</li>
+				<li>Email has to be unique.</li>
+			</ul>
+         
+	</div>
+		<a  th:href="@{/rules}"><button class="btn btn-primary btn-lg" role="button">Learn more</button></a>
+	</div>
+	</div>
+
+</body>
+
+</html>
