@@ -35,8 +35,10 @@
 							<p th:text="${l.email}" />
 
 						</div>
-						<div class="card-footer">
-						<button>Remove</button></div>
+					
+						<div class="card-footer" >
+						<a th:href="@{/remove/{email}(email=${l.email})}"><button>Remove</button></a>
+						</div>
 
 					</div>
 				</div>

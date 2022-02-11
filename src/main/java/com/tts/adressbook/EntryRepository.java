@@ -15,4 +15,5 @@ public interface EntryRepository extends JpaRepository<Entry,Long>{
 	Set<Entry> findByEmailStartingWithIgnoreCase(String email);
 	@Query(value = "select * from entry e where e.first_name like %:keyword% or e.last_name like %:keyword% or e.phone_number like %:keyword% or e.email like %:keyword%", nativeQuery = true)
 	Set<Entry> findByKeyword(@Param("keyword") String keyword);
+	void deleteByEmail(String email);
 }

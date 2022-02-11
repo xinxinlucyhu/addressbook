@@ -2,15 +2,14 @@ package com.tts.adressbook;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -85,47 +84,13 @@ public class AddressBookController {
 		 model.addAttribute("list", list);
 	  return "addresspost/search";
 	 }
-	 
 	
-	 
-//	 @GetMapping("/searchresult")
-//	 public String searchResult(Model model, String keyword) {
-//		 System.out.println(keyword);
-//		 Set<Entry> list=entryRepository.findByKeyword(keyword);
-//		 System.out.println(list);
-//		 model.addAttribute("list", list);
-//		 return "addresspost/searchresult";
-//	 }
-//	 
-	 
-//	@GetMapping(value = "/searchbyfirstname")
-//	public String search(String input, Model model) {
-//		try {
-//		if(input!=null) {
-//		List<Entry> List = entryRepository.findByFirstNameStartinWithIgnoreCase(input);
-//		model.addAttribute("list", List);}}
-//		catch() {
-//			
-//		}
-//		return "addresspost/searchresult";
-//	}
-//
-//	@GetMapping(value = "/searchbylastname")
-//	public String searchByLastName(String input, Model model) {
-//
-//		return "addresspost/searchresult";
-//	}
-//
-//	@GetMapping(value = "/searchbyphonenumber")
-//	public String searchByPhoneNumber(String input, Model model) {
-//
-//		return "addresspost/searchresult";
-//	}
-//
-//	@GetMapping(value = "/searchbyemail")
-//	public String searchByEmail(String input, Model model) {
-//		return "addresspost/searchresult";
-//
-	
+	 @RequestMapping(value = "/remove/{email}")
+	 @Transactional
+		public String remove(@PathVariable String email) {
+			entryRepository.deleteByEmail(email);
+			return "addresspost/removed";
+		}
+
 
 }
