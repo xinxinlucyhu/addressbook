@@ -10,6 +10,7 @@
 	<groupId>com.tts</groupId>
 	<artifactId>java-address-book-project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>demo</name>
 	<description>Java project for Address Book</description>
 	<properties>
